@@ -14,6 +14,11 @@ const burger = {
             cb(res);
         });
     },
+
+    // The variables cols and vals are arrays.
+    insertOne: function(cols, vals, cb) {
+        orm.create("burgers", cols, vals, (res) => cb(res));
+    },
 };
 
 // Export at the end of the burger.js file.

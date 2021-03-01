@@ -63,8 +63,25 @@ const orm = {
     });
   },
 
+  // An example of objColVals would be {name: Chilli burger, devoured: true}
+  update: function(tableInput, objColVals, condition, cb) {
+    let queryString = "UPDATE " + tableInput;
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
+    
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+
+  
   create: function(tableInput, cols, vals, cb) {
-    var queryString = "INSERT INTO " + tableInput;
+    let queryString = "INSERT INTO " + tableInput;
     queryString += " (";
     queryString += cols.toString();
     queryString += ") ";
@@ -80,21 +97,7 @@ const orm = {
     });
   },
 
-    // An example of objColVals would be {name: Chilli burger, devoured: true}
-  update: function(tableInput, objColVals, condition, cb) {
-    var queryString = "UPDATE " + tableInput;
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition;
-    
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  }
+
 };
 
 
