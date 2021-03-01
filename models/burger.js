@@ -7,7 +7,13 @@ const burger = {
         orm.all("burgers", function(res) {
           cb(res);
         });
-      },
+    },
+    
+    updateOne: function(objColVals, condition, cb) {
+        orm.update("burgers", objColVals, condition, function(res) {
+            cb(res);
+        });
+    },
 };
 
 // Export at the end of the burger.js file.
