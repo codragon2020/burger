@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
           const id = e.target.getAttribute('data-id');
           const newBurger = e.target.getAttribute('data-newburger');
           
-          const newBurgerState = {
-            devoured: newBurger,
+          const newDevouredState = {
+            devoured: true,
           };
   
           fetch(`/api/burgers/${id}`, {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             },
   
             // make sure to serialize the JSON body
-            body: JSON.stringify(newBurgerState),
+            body: JSON.stringify(newDevouredState),
           }).then((response) => {
             // Check that the response is all good
             // Reload the page so the user can see the new quote

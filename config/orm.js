@@ -81,8 +81,8 @@ const orm = {
   },
 
     // An example of objColVals would be {name: Chilli burger, devoured: true}
-  update: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
+  update: function(tableInput, objColVals, condition, cb) {
+    var queryString = "UPDATE " + tableInput;
     queryString += " SET ";
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
