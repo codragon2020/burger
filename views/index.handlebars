@@ -1,0 +1,12 @@
+<h1>Burgers!</h1>
+
+<h2>Burgers that are not eaten!</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#unless devoured}}
+  <li>{{burger_name}} <button class="devourBtn">Devour It!</button></li>
+  {{/unless}}
+  {{/each}}
+</ul>
+
